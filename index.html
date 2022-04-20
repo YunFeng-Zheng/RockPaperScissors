@@ -18,7 +18,24 @@
     }
     
     function playRound(playerSelection, computerSelection) {
-        
+        // Make the input from playerSelection all lowercaps
+        playerSelection.toLowerCase();
+        computerSelection.toLowerCase();
+        // Write out the outcomes of the game
+        //Winning outcomes
+        if ((playerSelection == "rock" && computerSelection == "paper") ||
+                (playerSelection == "paper" && computerSelection == "rock") ||
+                (playerSelection == "scissors" && computerSelection == "rock")) {
+                return string("It is a Win!");
+            }
+        // Drawing outcomes
+        else if (playerSelection == computerSelection) {
+            return string("It is a Draw!");
+        }
+
+        else {
+            return string("It is a Loss!");
+        }
 
 
 
