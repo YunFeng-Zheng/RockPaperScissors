@@ -47,8 +47,19 @@
 
     // game function 5 rounds
 
+    const playerScore = 0;
+    const computerScore = 0;
+
     function game() {
-        
+        // play game for 5 rounds
+        for (let i = 0; i < 5; i++) {
+            // initialize round and ask for player input with prompt 
+            playerSelection = prompt("Rock, Paper or Scissors? What is your choice?");
+            computerSelection = computerPlay;
+
+            playRound(playerSelection, computerSelection);
+        }
+
     }
  
 
