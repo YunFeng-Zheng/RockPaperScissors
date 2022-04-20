@@ -19,31 +19,38 @@
     
     function playRound(playerSelection, computerSelection) {
         // Make the input from playerSelection all lowercaps
-        playerSelection.toLowerCase();
-        computerSelection.toLowerCase();
+        playerSelection = playerSelection.toLowerCase();
+        computerSelection = computerSelection.toLowerCase();
         // Write out the outcomes of the game
         //Winning outcomes
-        if ((playerSelection == "rock" && computerSelection == "paper") ||
+        if ((playerSelection == "rock" && computerSelection == "scissors") ||
                 (playerSelection == "paper" && computerSelection == "rock") ||
-                (playerSelection == "scissors" && computerSelection == "rock")) {
-                return string("It is a Win!");
+                (playerSelection == "scissors" && computerSelection == "paper")) {
+                return "It is a Win!";
             }
         // Drawing outcomes
         else if (playerSelection == computerSelection) {
-            return string("It is a Draw!");
+            return "It is a Draw!";
         }
-
+        // Loss outcomes
         else {
-            return string("It is a Loss!");
+            return "It is a Loss!";
         }
-
-
-
-
-
     }
 
+    // Test run with player select Rock
+    const playerSelection = "rock";
+    const computerSelection = computerPlay();
+    console.log(playerSelection);
+    console.log(computerSelection);
+    console.log(playRound(playerSelection,computerSelection));
 
+    // game function 5 rounds
+
+    function game() {
+        
+    }
+ 
 
 
 
