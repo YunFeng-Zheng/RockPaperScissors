@@ -10,8 +10,13 @@
 
     
 <script>
-
+    // Rock Paper Scissors choices
     const choices = ["Rock", "Paper", "Scissors"]
+
+
+    // Keep track of the scores
+    playerScore = 0;
+    computerScore = 0;
 
     function computerPlay() {
         return choices[Math.floor(Math.random()*choices.length)];
@@ -21,11 +26,12 @@
         // Make the input from playerSelection all lowercaps
         playerSelection = playerSelection.toLowerCase();
         computerSelection = computerSelection.toLowerCase();
-        // Write out the outcomes of the game
+        // Write out the outcomes of the game + update scores
         //Winning outcomes
         if ((playerSelection == "rock" && computerSelection == "scissors") ||
                 (playerSelection == "paper" && computerSelection == "rock") ||
                 (playerSelection == "scissors" && computerSelection == "paper")) {
+                playerScore += 1;
                 return "It is a Win!";
             }
         // Drawing outcomes
@@ -34,35 +40,39 @@
         }
         // Loss outcomes
         else {
+            computerScore += 1;
             return "It is a Loss!";
         }
     }
-
-    // Test run with player select Rock
-    const playerSelection = "rock";
-    const computerSelection = computerPlay();
-    console.log(playerSelection);
-    console.log(computerSelection);
-    console.log(playRound(playerSelection,computerSelection));
-
     // game function 5 rounds
 
-    const playerScore = 0;
-    const computerScore = 0;
 
     function game() {
         // play game for 5 rounds
         for (let i = 0; i < 5; i++) {
             // initialize round and ask for player input with prompt 
-            playerSelection = prompt("Rock, Paper or Scissors? What is your choice?");
-            computerSelection = computerPlay;
+            const playerSelection = window.prompt("What is your choice?");
+            const computerSelection = computerPlay();
 
             playRound(playerSelection, computerSelection);
-        }
 
+            console.log("Player score " + playerScore + " - " + "Computer score " + computerScore); 
+        }
+        if (playerScore > computerScore) {
+            console.log("The end score is " + playerScore + " - " + computerScore);
+            console.log(" The winner is You!");
+        }
+        else if (playerScore == computerScore) {
+            console.log("The end score is " + playerScore + " - " + computerScore);
+            console.log("It is a Draw!");
+        }
+        else {
+            console.log("The end score is " + playerScore + " - " + computerScore);
+            console.log("The winner is the Computer!");
+        }
     }
  
-
+    game();
 
 
 
